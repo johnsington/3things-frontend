@@ -3,3 +3,45 @@
 
 @import "normalize";
 @import "skeleton";
+@import "colors";
+@import "typography";
+
+@import "timelineview.scss";
+
+nav {
+	$logo-size: 32px;
+	padding: 18px 0;
+	line-height: $logo-size;
+
+	.logo {
+		display: inline-block;
+		margin: 0 auto;
+		width: $logo-size;
+		height: $logo-size;
+		position: absolute;
+		left: 0;
+		right: 0;
+		img {
+			width:100%;
+			height:100%;
+			vertical-align: middle;
+		}
+	}
+
+	.right-nav {
+		.newpost {
+			$button-size: 30px;
+			font-size: 22px;
+			display: inline-block;
+			margin-left: 10px;
+			width: $button-size;
+			height:$button-size;
+			line-height: 27px;
+			text-align: center;
+			background: $main-colour;
+			color: #fff;
+			text-decoration: none;
+			border-radius: $button-size;
+		}
+	}
+}

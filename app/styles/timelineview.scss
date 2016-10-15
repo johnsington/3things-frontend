@@ -1,0 +1,52 @@
+section.timeline-view {
+	h1 {
+		margin: 45px 0;
+	}
+
+	.memory-block, .timeline-block {
+		position: relative;
+	}
+
+	.timeline-block {
+		margin-bottom: 56px;
+	}
+
+	.timeline-parent {
+		position: relative;
+	}
+
+	.timeline-container{
+		&:before{
+			content:'';
+			width:1px;
+			height:99%;
+			background: $main-type-colour;
+			position: absolute;
+			display: block;
+			left: 9.5px;
+			top:2px;
+			opacity: 0.5;
+		}
+	}
+	span.timeline-date {
+		display: inline-block;
+		position: absolute;
+		left: -115px;
+		text-align: right;
+		opacity: 0.5;
+	}
+
+	.memory-dot {
+		$dot-size: 20px;
+		width: $dot-size;
+		height: $dot-size;
+		position: absolute;
+		background: $main-colour;
+		border-radius: $dot-size;
+		top: 2px;
+	}
+
+	.memory-content {
+		margin-left: 40px;
+	}
+}

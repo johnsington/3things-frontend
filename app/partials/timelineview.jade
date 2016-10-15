@@ -1,0 +1,17 @@
+section.timeline-view
+	.container
+		.twelve.columns 
+			h1 Your Past Memories
+	.container
+		.four.columns.offset-by-five
+			.timeline-parent
+				.timeline-container
+				- for (var j = 15; j < 29; j++)
+					.timeline-block
+						span.timeline-date= "September " + j
+						- for (var i = 0; i < 3; i++)
+							.memory-block
+								.memory-dot
+								.memory-content
+									p I made pizza for myself.
+

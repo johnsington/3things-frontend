@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Miriam+Libre|Montserrat');
+
+body, html {
+  color: $main-type-colour;
+}
+
+h1, h2, h4, h5, h6, p {
+  font-family: 'Miriam Libre', sans-serif;
+}
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+h3, .username {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.username {
+  text-transform: uppercase;
+}
+
