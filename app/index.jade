@@ -1,8 +1,33 @@
 extends ./layouts/layout.jade
 
-block title
-	title Hi Hello
-
 block content
-	h1 Hi Hello Bye
+	.container
+		.row
+			.offset-by-two.columns
+				.eight.columns
+					.vertical-center
+						.fixed
+							h4
+								|What are three things you did well today?
+							p.hint
+								|For example: I made my friend Maggie pizza!
+							form(name="new-entry")
+								div.input
+									span.char-count 54
+									span.number-active 1
+									input(type="text", name="first", class="active", value="I went on an hour walk")
+								div.input
+									span.char-count 64
+									span.number-inactive 2
+									input(type="text", name="second", class="inactive", value="Write your second here")
+								div.input
+									span.char-count 34
+									span.number-inactive 3
+									input(type="text", name="third", class="inactive", value="Write your third here")
+								div.input
+									input(type="button", name="submit", value="Submit")
+
+
+
+
 
