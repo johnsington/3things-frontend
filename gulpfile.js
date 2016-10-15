@@ -62,11 +62,11 @@ gulp.task('lint:test', () => {
 gulp.task('jade', function () {
   return gulp.src('app/**/*.jade')
     .pipe(jade())
-    .pipe(gulp.dest('app/html'))
+    .pipe(gulp.dest('app'))
 })
 
 gulp.task('html', ['styles', 'scripts'], () => {
-  return gulp.src('app/html/*.html')
+  return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
@@ -104,7 +104,7 @@ gulp.task('serve', () => {
       notify: false,
       port: 9000,
       server: {
-        baseDir: ['.tmp', 'app/html'],
+        baseDir: ['.tmp', 'app'],
         routes: {
           '/bower_components': 'bower_components'
         }
@@ -118,6 +118,7 @@ gulp.task('serve', () => {
     ]).on('change', reload);
 
     gulp.watch('app/styles/**/*.scss', ['styles']);
+    gulp.watch('app/**/*.jade', ['jade','html']);
       gulp.watch('app/scripts/**/*.js', ['scripts']);
       gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
