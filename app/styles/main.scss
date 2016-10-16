@@ -52,14 +52,30 @@ $main-color: #40E0D0;
 }
 
 .char-count{
-	height: 90px;
-  	line-height: 90px;
   	padding-right:10px;
+
+}
+
+div.form{
+	height: 60px;
+    
+    line-height: 60px;
 }
 
 input {
     border-style:none;
-    width:80%;
+    width:82%;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.input{
+	padding-top: 15px;
 }
 
 input[type=button], input[type=submit], input[type=reset] {

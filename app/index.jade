@@ -12,18 +12,18 @@ block content
 							p.hint
 								|For example: I made my friend Maggie pizza!
 							form(name="new-entry")
-								div.input
+								div.form
 									span.char-count 54
 									span.number-active 1
-									input(type="text", name="first", class="active", value="I went on an hour walk")
-								div.input
+									input(type="textarea", name="first", class="active", d="ta", value="I went on an hour walk" )
+								div.form
 									span.char-count 64
 									span.number-inactive 2
-									input(type="text", name="second", class="inactive", value="Write your second here")
-								div.input
+									input(type="textarea", name="second", class="inactive", id="ta", value="Write your second here")
+								div.form
 									span.char-count 34
 									span.number-inactive 3
-									input(type="text", name="third", class="inactive", value="Write your third here")
+									input(type="textarea", name="third", class="inactive", id="ta", value="Write your third here")
 								div.input
 									input(type="button", name="submit", value="Submit")
 
