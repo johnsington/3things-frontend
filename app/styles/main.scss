@@ -6,7 +6,8 @@
 @import "colors";
 @import "typography";
 
-@import "timelineview.scss";
+@import "timelineview";
+@import "newentry";
 
 nav {
 	$logo-size: 32px;
