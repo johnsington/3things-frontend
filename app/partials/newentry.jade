@@ -1,25 +1,26 @@
-.container
-		.row
-			.offset-by-two.columns
-				.eight.columns
-					.vertical-center
-						.fixed
-							h4
-								|What are three things you did well today?
-							p.hint
-								|For example: I made my friend Maggie pizza!
-							form(name="new-entry")
-								div.form
-									span.char-count 54
-									span.number-active 1
-									input(type="textarea", name="first", class="active", id="ta1", value="I went on an hour walk")
-								div.form
-									span.char-count 64
-									span.number-inactive 2
-									input(type="textarea", name="second", class="inactive", id="ta2", value="Write your second here")
-								div.form
-									span.char-count 34
-									span.number-inactive 3
-									input(type="textarea", name="third", class="inactive", id="ta3",value="Write your third here")
-								div.input
-									input(type="button", name="submit", value="Submit")
+.new-entry.u-hidden
+	.container
+			.row
+				.offset-by-two.columns
+					.eight.columns
+						.vertical-center
+							.fixed
+								h4
+									|What are three things you did well today?
+								p.hint
+									|For example: I made my friend Maggie pizza!
+								form(name="new-entry")
+									div.form
+										span.char-count 54
+										span.number-active 1
+										input(type="textarea", name="first", class="active", id="ta1", value="I went on an hour walk")
+									div.form
+										span.char-count 64
+										span.number-inactive 2
+										input(type="textarea", name="second", class="inactive", id="ta2", value="Write your second here")
+									div.form
+										span.char-count 34
+										span.number-inactive 3
+										input(type="textarea", name="third", class="inactive", id="ta3",value="Write your third here")
+									div.input
+										input(type="button", name="submit", value="Submit")
