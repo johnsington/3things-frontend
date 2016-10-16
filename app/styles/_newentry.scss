@@ -49,6 +49,22 @@
   	padding-right:10px;
 }
 
+div.form{
+	height:60px;
+	line-height: 60px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+.input{
+	padding-top: 15px;
+}
+
 input {
     border-style:none;
     width:80%;
