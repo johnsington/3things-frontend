@@ -12,6 +12,7 @@ const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+const gutil = require('gulp-util');
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -78,7 +79,7 @@ gulp.task('jade', function () {
 gulp.task('html', ['styles', 'scripts'], () => {
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe($.if('*.js', $.uglify()))
+    .pipe($.if('*.js' && '!*.map', $.uglify().on('error', gutil.log)))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest('dist'));
@@ -129,8 +130,8 @@ gulp.task('serve', () => {
 
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/**/*.jade', ['jade','html']);
-      gulp.watch('app/scripts/**/*.js', ['scripts']);
-      gulp.watch('app/fonts/**/*', ['fonts']);
+    gulp.watch('app/scripts/**/*.js', ['scripts']);
+    gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
   });
 });
@@ -158,6 +159,7 @@ gulp.task('serve:test', ['scripts'], () => {
       }
     }
   });
+
 
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch(['test/spec/**/*.js', 'test/index.html']).on('change', reload);

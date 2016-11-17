@@ -1,5 +1,5 @@
-import Modal from './Modal';
 import $ from 'jquery';
+import Modal from './Modal';
 
 (function($){
 

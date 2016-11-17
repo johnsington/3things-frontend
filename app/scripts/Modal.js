@@ -1,4 +1,7 @@
 import $ from 'jquery';
+import ApiUtil from './apiUtil';
+
+let api = ApiUtil();
 
 export default function(elt, openerClass){
     this.active = false;
@@ -17,6 +20,7 @@ export default function(elt, openerClass){
         e.preventDefault();
 
         //validate form here
+        api.postUser('Joanne');
 
         $modal.find('.form-container').addClass('u-hidden');
         $modal.find('.success').removeClass('u-hidden');
