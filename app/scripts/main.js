@@ -1,4 +1,5 @@
 import Modal from './Modal';
+import $ from 'jquery';
 
 (function($){
 
@@ -17,7 +18,7 @@ import Modal from './Modal';
     });
 
     $(document).ready(function(){
-        var newEntry = new Modal( jQuery, '.new-entry', '.newpost');
+        var newEntry = new Modal('.new-entry', '.newpost');
     });
 
-})(jQuery);
+})($);

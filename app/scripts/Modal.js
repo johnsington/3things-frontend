@@ -1,4 +1,6 @@
-export default function($, elt, openerClass){
+import $ from 'jquery';
+
+export default function(elt, openerClass){
     this.active = false;
     this.$modal = $(elt);
     this.response = {};
