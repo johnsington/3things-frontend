@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import Modal from './Modal';
+import EntryForm from './EntryForm';
 
 (function($){
 
@@ -19,6 +20,7 @@ import Modal from './Modal';
 
     $(document).ready(function(){
         var newEntry = new Modal('.new-entry', '.newpost');
+        EntryForm();
     });
 
 })($);
