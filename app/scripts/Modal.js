@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import ApiUtil from './apiUtil';
+import {delayAnimate} from './util/animation'
 
 let api = ApiUtil();
 
@@ -37,19 +38,7 @@ export default function(elt, openerClass){
         
     });
 
-    function delayAnimate($items, animation, interval = 0) {
-        var delay = 0;
-
-        $items.addClass('u-invisible');
-
-        $.each($items, function(i, item) {
-            setTimeout(function() {
-                $(item).removeClass('u-invisible');
-                $(item).animateCss(animation);
-            }, delay);
-            delay+= interval;
-        })
-    }
+    
 
     this.showModal = ()=> {
         this.$modal.removeClass('u-hidden');

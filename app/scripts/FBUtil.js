@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import ApiUtil from './apiUtil';
+import cookie from 'cookies-js';
 
 let api = ApiUtil();
 
@@ -52,6 +53,8 @@ export default function() {
           FB.api('/me', {fields: 'name,email'}, function(response) {
             response.fbToken = res.authResponse.accessToken;
             api.login(response);
+            cookie.set('response-name', response.name, { expires: res.expiresIn});
+             window.location.assign('http://localhost:9000/');
           });
         }
         else {
@@ -60,7 +63,7 @@ export default function() {
       }, {scope: 'email'})
     };
 
-    $('.logo').click(this.login);
+    $('.login').click(this.login);
 
   });
 }
