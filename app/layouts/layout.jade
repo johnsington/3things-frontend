@@ -6,7 +6,7 @@ html
 			title 3 Things App
 		link(rel="stylesheet" href="styles/main.css")
 	body
-		include ./../partials/nav.jade
 		block content
-		script(src="/bower_components/jquery/dist/jquery.js")
-		script(src="scripts/main.js")
+		| <!-- build:js({.tmp,app}) scripts/main.js -->
+		script(src="scripts/bundle.js")
+		| <!-- endbuild -->
