@@ -146,7 +146,6 @@ export default function(){
         //var regexp=/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/
         //if regexp.test(t1.value)
     });
-
 }
 
 
