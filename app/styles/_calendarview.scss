@@ -1,0 +1,53 @@
+section.calendar-view {
+	.calendar-container{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.month {
+		width: 30%;
+		margin-bottom: 30px;
+
+		.month-name {
+			margin: 10px;
+		}
+		.grid-container {
+			width:100%;
+			.cell {
+				display:inline-block;
+				height:40px;
+				width:14.28%;
+				background: #eee;
+				font-family: 'Miriam Libre', sans-serif;
+
+				&.odd {
+					background-color: #ddd;
+				}
+				&.green-1 {
+					background: $cell-green-1;
+				}
+
+				&.green-2 {
+					background: $cell-green-2;
+				}
+
+				&.green-3 {
+					background: $cell-green-3;
+				}
+
+				a {
+					text-align: center;
+					display: block;
+					text-align: center;
+					line-height: 40px;
+					color: #fff;
+				}
+
+				&.u-hidden {
+					display: none;
+				}
+			}
+		}
+	}
+}

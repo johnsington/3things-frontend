@@ -1,24 +1,28 @@
 import $ from 'jquery';
+import cookie from 'cookies-js';
 import Modal from './Modal';
+import FBinit from './FBUtil';
+import {delayAnimate} from './util/animation'
+import CalendarView from './CalendarView'
+
+
 
 (function($){
-
-    $.fn.extend({
-        animateCss: function (animationName, callback) {
-            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-            this.addClass('animated ' + animationName).one(animationEnd, function() {
-                $(this).removeClass('animated ' + animationName);
-
-                if (callback){
-                    callback();
-                    $(this).off(animationEnd);
-                }
-            });
-        }
-    });
-
     $(document).ready(function(){
-        var newEntry = new Modal('.new-entry', '.newpost');
+    	let calendar = CalendarView('.calendar-container');
+        let newEntry = new Modal('.new-entry', '.newpost');
+        FBinit();
+
+        calendar.renderYear();
+
+        delayAnimate($('.titles').children(), 'fadeInUp');
+
+        let name = cookie.get('response-name');
+
+        if (name) {
+        	console.log('cookie successfully set: ' + name);
+        }
+
     });
 
 })($);

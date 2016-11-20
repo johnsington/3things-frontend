@@ -1,0 +1,17 @@
+section.calendar-view
+	.container
+		.twelve.columns 
+			h1 Your Past Memories
+	.container
+		.row
+			.twelve.columns.calendar-container
+				.u-hidden
+					.month-container
+						h5.month-name January
+						.grid-container
+							- for (var j = 0; j <5 ; j++)
+								.grid-row
+									- for (var i = 1; i <= 7; i++)
+											.cell.u-hidden
+												a= j*7 + i
+

@@ -86,9 +86,9 @@ function updateCharCount(val){
 
 function submitForm(){
     //check input boxes
-    var t1 = document.getElementById("ta1");
-    var t2 = document.getElementById("ta2");
-    var t3 = document.getElementById("ta3");
+    var t1 = document.getElementById('ta1');
+    var t2 = document.getElementById('ta2');
+    var t3 = document.getElementById('ta3');
 
     if(t1.value==null||t2.value==null||t3.value==null){
         //output error message
