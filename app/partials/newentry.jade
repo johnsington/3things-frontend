@@ -1,25 +1,29 @@
-.container
-		.row
-			.offset-by-two.columns
-				.eight.columns
-					.vertical-center
-						.fixed
-							h4
-								|What are three things you did well today?
-							p.hint
-								|For example: I made my friend Maggie pizza!
-							form(name="new-entry")
-								div.form
-									span.char-count#ta1 
-									span.number-inactive#ta1 1
-									input(type="textarea", name="first", class="inactive", id="ta1", placeholder="Write your first here", onfocus="activeArea(this)", onfocusout="inactiveArea()", onkeyup="countChar(this)")
-								div.form
-									span.char-count#ta2 
-									span.number-inactive#ta2 2
-									input(type="textarea", name="second", class="inactive", id="ta2", placeholder="Write your second here", onfocus="activeArea(this)", onfocusout="inactiveArea()",onkeyup="countChar(this)")
-								div.form
-									span.char-count#ta3 
-									span.number-inactive#ta3 3
-									input(type="textarea", name="third", class="inactive", id="ta3",placeholder="Write your third here", onfocus="activeArea(this)", onfocusout="inactiveArea()",onkeyup="countChar(this)")
-								div.input
-									input(type="button", name="submit", value="Submit", onclick="submitForm()")
+.new-entry.u-hidden
+	.container
+			.row
+				.offset-by-two.columns
+					.eight.columns
+						.vertical-center
+							.fixed
+								.form-container
+									h4
+										|What are three things you did well today?
+									p.hint
+										|For example: I made my friend Maggie pizza!
+									form(name="new-entry")
+										div.form
+											span.char-count#ta1 
+											span.number-inactive#ta1 1
+											input(type="textarea", name="first", class="inactive", id="ta1", placeholder="Write your first here", onfocus="activeArea(this)", onfocusout="inactiveArea()", onkeyup="countChar(this)")
+										div.form
+											span.char-count#ta2 
+											span.number-inactive#ta2 2
+											input(type="textarea", name="second", class="inactive", id="ta2", placeholder="Write your second here", onfocus="activeArea(this)", onfocusout="inactiveArea()",onkeyup="countChar(this)")
+										div.form
+											span.char-count#ta3 
+											span.number-inactive#ta3 3
+											input(type="textarea", name="third", class="inactive", id="ta3",placeholder="Write your third here", onfocus="activeArea(this)", onfocusout="inactiveArea()",onkeyup="countChar(this)")
+										div.input
+											input(type="button", name="submit", value="Submit", onclick="submitForm()")
+								.success.u-hidden
+									h4 Thanks for writing Jen!

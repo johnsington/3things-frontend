@@ -5,9 +5,20 @@
 @import "skeleton";
 @import "colors";
 @import "typography";
+@import "animate";
 
 @import "timelineview";
 @import "newentry";
+
+/* Utilities */
+.u-hidden {
+	display: none;
+}
+
+.u-invisible {
+	opacity: 0;
+	visibility: none;
+}
 
 nav {
 	$logo-size: 32px;

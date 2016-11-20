@@ -6,9 +6,13 @@ const del = require('del');
 const jade = require('gulp-jade');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
-
+const browserify = require('browserify');
+const babelify = require('babelify');
+const buffer = require('vinyl-buffer');
+const source = require('vinyl-source-stream');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+const gutil = require('gulp-util');
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -26,10 +30,17 @@ gulp.task('styles', () => {
 });
 
 gulp.task('scripts', () => {
-  return gulp.src('app/scripts/**/*.js')
+  const b = browserify({
+    entries: 'app/scripts/main.js',
+    transform: babelify,
+    debug: true
+  });
+
+  return b.bundle()
+    .pipe(source('bundle.js'))
     .pipe($.plumber())
-    .pipe($.sourcemaps.init())
-    .pipe($.babel())
+    .pipe(buffer())
+    .pipe($.sourcemaps.init({loadMaps: true}))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
@@ -68,7 +79,7 @@ gulp.task('jade', function () {
 gulp.task('html', ['styles', 'scripts'], () => {
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe($.if('*.js', $.uglify()))
+    .pipe($.if('*.js' && '!*.map', $.uglify().on('error', gutil.log)))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest('dist'));
@@ -119,8 +130,8 @@ gulp.task('serve', () => {
 
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/**/*.jade', ['jade','html']);
-      gulp.watch('app/scripts/**/*.js', ['scripts']);
-      gulp.watch('app/fonts/**/*', ['fonts']);
+    gulp.watch('app/scripts/**/*.js', ['scripts']);
+    gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
   });
 });
@@ -148,6 +159,7 @@ gulp.task('serve:test', ['scripts'], () => {
       }
     }
   });
+
 
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch(['test/spec/**/*.js', 'test/index.html']).on('change', reload);
