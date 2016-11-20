@@ -42,7 +42,6 @@ export default function() {
           console.log('not authorized');
         } else {
           console.log(res); 
-
         }
       });
     }
@@ -54,7 +53,7 @@ export default function() {
             response.fbToken = res.authResponse.accessToken;
             api.login(response);
             cookie.set('response-name', response.name, { expires: res.expiresIn});
-             window.location.assign('http://localhost:9000/');
+            window.location.assign(api.getClientUrl());
           });
         }
         else {

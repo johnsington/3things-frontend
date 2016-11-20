@@ -3,6 +3,7 @@ import request from 'request';
 
 export default function () {
 	const url = 'https://sheltered-escarpment-22682.herokuapp.com';
+	const clientUrl = 'http://localhost:9000/';
 
 	return {
 		postUser : (data)=> {
@@ -33,6 +34,9 @@ export default function () {
 			} catch (e) {
 				console.log(e.message);
 			}
+		},
+		getClientUrl : ()=> {
+			return clientUrl;
 		}
 	};
 };
