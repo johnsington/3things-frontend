@@ -91,17 +91,6 @@ input {
     width:80%;
 }
 
-input[type=button], input[type=submit], input[type=reset] {
-    background-color: $main-colour;
-    border: none;
-    color: white;
-    display: block;
-    margin: 0 auto;
-    width: 40%;
-    font-size: 1.5rem;
-    
-}
-
 #err{
 	font-style: italic;
 	color: #ff0000;
