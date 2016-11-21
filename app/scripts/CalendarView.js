@@ -15,7 +15,7 @@ export default function(container) {
   function renderMonth(month, $container) {
     let $month = $($('.month-container').clone());
     let cells = $month.find('.cell');
-    let date = moment(month, "YYYY-MM");
+    let date = moment(month, 'YYYY-MM');
 
     //update days
     let days = date.daysInMonth();

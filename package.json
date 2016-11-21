@@ -55,5 +55,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "validator": "^6.1.0"
   }
 }
