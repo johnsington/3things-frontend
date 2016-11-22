@@ -86,6 +86,15 @@ nav {
 			color: #fff;
 			text-decoration: none;
 			border-radius: $button-size;
+			transition: all 0.2s;
+
+			&:hover{
+				opacity:0.8;
+			}
+
+			.fa {
+				transition: none;
+			}
 
 			&.toggle-calendar {
 				span {
