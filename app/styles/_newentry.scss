@@ -31,6 +31,7 @@
 
 .hint{
 	font-style: italic;
+	margin-bottom: 2px;
 }
 
 .number-active{
@@ -52,8 +53,7 @@
 	overflow:hidden
 }
 .inactive{
-	font-size: 2.0rem;
-	overflow:hidden
+	font-size: 2.0rem;	
 }
 
 .char-count{
@@ -65,13 +65,19 @@
 div.form{
 	height:60px;
 	line-height: 60px;
+	display: block;
 }
 
 input:focus,
 select:focus,
-textarea:focus,
+textarea:focus{
+	outline: none;
+	border: 0 fixed white;
+}
+
 button:focus {
 	outline: none;
+	color: white;
 }
 
 .input{
@@ -79,20 +85,39 @@ button:focus {
 }
 
 textarea.inactive {
-    border: 0 none white;
+    border: 0 fixed white;
     overflow: hidden;
     padding: 0;
     outline: none;
-    resize: none;
 }
 
 input {
     border-style:none;
-    width:80%;
+    width:75%;
 }
 
 #err{
 	font-style: italic;
 	color: #ff0000;
+	margin-bottom: 0px;
+}
+
+#submit{
+	color: white;
+}
+
+form{
+	margin-top: 0px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+	background-color: $main-colour;
+	border: none;
+	color: white;
+	display: block;
+ 	margin: 0 auto;
+ 	width: 40%;
+	font-size: 1.5rem;
+	   
 }
 
