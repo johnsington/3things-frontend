@@ -25,11 +25,11 @@ export default function () {
 				}
 			);
 		},
-		postEntry : (data)=> {
+		postEntry : (data, cb)=> {
 			let req = {
 				date: moment().format('DD-MM-YYYY'),
 				user_id: cookie.get('user-id'),
-				memories: ['testing this', 'test 2', 'test 3']
+				memories: [data.entry1, data.entry2, data.entry3]
 			};
 
 			request.post(url+'/daily_entry', {form:req} ,
@@ -38,6 +38,10 @@ export default function () {
 
 					var bodyJSON = $.parseJSON(body);
 					console.log(bodyJSON);
+
+					if (cb){
+						cb(bodyJSON);
+					};
 				}
 			);
 		},

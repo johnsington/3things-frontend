@@ -3,7 +3,7 @@
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	color: #fff;
 
 	.titles {
@@ -32,10 +32,8 @@
 }
 
 .puppets-container {
-	position: absolute;
-	bottom: 0;
 	overflow: hidden;
-
+	text-align: center;
 	.offset {
 		transform: translateY(50px);
 	}
