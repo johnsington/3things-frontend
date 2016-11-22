@@ -55,10 +55,8 @@ export default function() {
             api.login(response, function() {
               console.log(cookie.get('session-id'));
               console.log(cookie.get('session-token'));
-              console.log(cookie.get('user-id'));
+              console.log(cookie.get('user-full-name'));
 
-              api.getEntries();
-              // api.postEntry();
               // window.location.assign(api.getClientUrl());
             });
           });

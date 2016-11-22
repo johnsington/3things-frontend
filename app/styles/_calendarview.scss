@@ -39,7 +39,8 @@ section.calendar-view {
 			width:100%;
 			.cell {
 				$mobile-height: 9vh;
-				display:inline-block;
+				display:block;
+				float:left;
 				height: $mobile-height;
 				width:14.28571%;
 				background: #eee;

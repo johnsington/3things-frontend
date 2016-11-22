@@ -67,8 +67,14 @@ nav {
 	}
 
 	.right-nav {
-		.newpost {
-			$button-size: 30px;
+		.username {
+			display:none;
+			@media (min-width: $lg) {
+				display:inline;
+			}
+		}
+		.round-button {
+			$button-size: 32px;
 			font-size: 22px;
 			display: inline-block;
 			margin-left: 10px;
@@ -80,6 +86,12 @@ nav {
 			color: #fff;
 			text-decoration: none;
 			border-radius: $button-size;
+
+			&.toggle-calendar {
+				span {
+					font-size: 18px;
+				}
+			}
 		}
 	}
 }
