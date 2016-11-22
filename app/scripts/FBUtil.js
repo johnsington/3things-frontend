@@ -53,7 +53,7 @@ export default function() {
             response['fb_token'] = res.authResponse.accessToken;
             response['user_id'] = response.id;
             api.login(response, function() {
-              window.location.assign(api.getClientUrl());
+              window.location.assign(document.location.origin);
             });
           });
         }

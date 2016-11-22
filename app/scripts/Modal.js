@@ -13,6 +13,8 @@ export default function(elt, openerClass){
     this.$clone = this.$modal.clone(true);
     this.$submit = this.$modal.find('input[type="button"]').first();
 
+    $('#complete').text('Thanks for writing '+ api.getName().split(' ')[0] +'!');
+
     this.registerOpener = ()=> {
         this.$opener.click(this.showModal);
     }
@@ -65,11 +67,6 @@ export default function(elt, openerClass){
 
         //validate form here
         api.postEntry(allEntries, function(response){
-            var name = api.getName().split(" ");
-            //console.log(name);
-
-            $('#complete').html('Thanks for writing '+ name[0]+'!');
-
             $modal.find('.form-container').addClass('u-hidden');
             $modal.find('.success').removeClass('u-hidden');
             delayAnimate($modal.find('.success').children(), 'fadeInUp');
