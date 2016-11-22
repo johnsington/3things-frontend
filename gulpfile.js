@@ -146,7 +146,7 @@ gulp.task('serve', () => {
   });
 });
 
-gulp.task('serveprod', function() {
+gulp.task('serveprod', ['build'], ()=> {
   connect.server({
     root: ['dist'],
     port: process.env.PORT || 5000, // localhost:5000
