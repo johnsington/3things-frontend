@@ -58,7 +58,6 @@ export default function(elt, openerClass){
 
         //validate form here
         api.postUser('Joanne');
-        api.postEntry(null);
 
         $modal.find('.form-container').addClass('u-hidden');
         $modal.find('.success').removeClass('u-hidden');

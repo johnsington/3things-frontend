@@ -22,11 +22,5 @@ import CalendarView from './CalendarView'
         if (name) {
         	console.log('cookie successfully set: ' + name);
         }
-
-        $('.toggle-calendar').click(function(e){
-        	e.preventDefault();
-        	$('.timeline-view').toggleClass('u-hidden');
-        	$('.calendar-view').toggleClass('u-hidden');
-        })
     });
 })($);

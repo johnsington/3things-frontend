@@ -48,6 +48,7 @@ export default function(container) {
         if (month < 10) {
           monthString = '0'+ monthString;
         }
+        console.log(year.toString() + '-' + monthString);
         renderMonth( year.toString() + '-' + monthString, $container);
       }
     }

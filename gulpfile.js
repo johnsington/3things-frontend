@@ -13,7 +13,6 @@ const source = require('vinyl-source-stream');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 const gutil = require('gulp-util');
-const connect = require('gulp-connect');
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -71,24 +70,16 @@ gulp.task('lint:test', () => {
     .pipe(gulp.dest('test/spec'));
 });
 
-// gulp.task('jade', function () {
-//   return gulp.src('app/**/*.jade')
-//     .pipe(jade())
-//     .pipe(gulp.dest('app'))
-// })
+gulp.task('jade', function () {
+  return gulp.src('app/**/*.jade')
+    .pipe(jade())
+    .pipe(gulp.dest('app'))
+})
 
-gulp.task('jade', () => {
-  return gulp.src('app/*.jade')
-    .pipe($.plumber())
-    .pipe(jade({pretty: true}))
-    .pipe(gulp.dest('.tmp'))
-    .pipe(reload({stream: true}));
-});
-
-gulp.task('html', ['jade', 'styles', 'scripts'], () => {
-  return gulp.src(['app/*.html', '.tmp/*.html'])
+gulp.task('html', ['styles', 'scripts'], () => {
+  return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe($.if('*.js', $.uglify().on('error', gutil.log)))
+    .pipe($.if('*.js' && '!*.map', $.uglify().on('error', gutil.log)))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest('dist'));
@@ -110,8 +101,7 @@ gulp.task('fonts', () => {
 gulp.task('extras', () => {
   return gulp.src([
     'app/*',
-    '!app/*.html',
-    '!app/*.jade'
+    '!app/*.html'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
@@ -120,7 +110,7 @@ gulp.task('extras', () => {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
-  runSequence(['clean', 'wiredep'], ['jade', 'styles', 'scripts', 'fonts'], () => {
+  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
     browserSync({
       notify: false,
       port: 9000,
@@ -139,18 +129,10 @@ gulp.task('serve', () => {
     ]).on('change', reload);
 
     gulp.watch('app/styles/**/*.scss', ['styles']);
-    gulp.watch('app/**/*.jade', ['jade']);
+    gulp.watch('app/**/*.jade', ['jade','html']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
     gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
-  });
-});
-
-gulp.task('serveprod', function() {
-  connect.server({
-    root: ['dist'],
-    port: process.env.PORT || 5000, // localhost:5000
-    livereload: false
   });
 });
 
@@ -192,11 +174,11 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app/styles'));
 
-  gulp.src('app/layouts/*.jade')
+  gulp.src('app/*.html')
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)*\.\./
     }))
-    .pipe(gulp.dest('app/layouts'));
+    .pipe(gulp.dest('app'));
 });
 
 gulp.task('build', ['lint','jade', 'html', 'images', 'fonts', 'extras'], () => {
