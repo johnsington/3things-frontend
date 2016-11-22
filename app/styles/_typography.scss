@@ -10,8 +10,12 @@ h1, h2, h4, h5, h6, p {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 24px;
   text-align: center;
+  
+  @media (min-width: $lg) {
+    font-size: 30px;
+  }
 }
 
 h2 {

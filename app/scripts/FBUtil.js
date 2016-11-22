@@ -53,11 +53,7 @@ export default function() {
             response['fb_token'] = res.authResponse.accessToken;
             response['user_id'] = response.id;
             api.login(response, function() {
-              console.log(cookie.get('session-id'));
-              console.log(cookie.get('session-token'));
-              console.log(cookie.get('user-full-name'));
-
-              // window.location.assign(api.getClientUrl());
+              window.location.assign(api.getClientUrl());
             });
           });
         }
