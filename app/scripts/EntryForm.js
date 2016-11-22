@@ -74,8 +74,8 @@ export default function(){
     
     $('.inactive').on('focus', function activeArea() { 
         var selectedTextArea = document.activeElement;
-        console.log(selectedTextArea);
-        console.log(selectedTextArea.id);
+        // console.log(selectedTextArea);
+        // console.log(selectedTextArea.id);
         currId=selectedTextArea.id;
         $('.number-inactive#n'+currId).toggleClass('number-active');
         console.log('.number-inactive#n'+currId);
@@ -84,7 +84,7 @@ export default function(){
 
 
     $('.inactive').on('focusout', function inactiveArea() {
-        console.log(currId);
+        // console.log(currId);
         $('.number-inactive#n'+currId).toggleClass('number-active');
         updateCharCount('');
     });

@@ -1,13 +1,36 @@
 section.calendar-view {
+	
+	h1 {
+		margin:10px;
+		text-align: left;
+
+		@media (min-width: $lg) {
+			text-align: center;
+		}
+	}
 	.calendar-container{
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
+
+	.calendar-view-container {
+		width: 100%;
+		padding: 0;
+
+		@media (min-width: $lg) {
+			max-width: $lg;
+		}
+	}
+
 	.month {
-		width: 30%;
+		width: 100%;
 		margin-bottom: 30px;
+
+		@media (min-width: $lg) {
+			width: 30%;
+		}
 
 		.month-name {
 			margin: 10px;
@@ -15,11 +38,16 @@ section.calendar-view {
 		.grid-container {
 			width:100%;
 			.cell {
+				$mobile-height: 9vh;
 				display:inline-block;
-				height:40px;
-				width:14.28%;
+				height: $mobile-height;
+				width:14.28571%;
 				background: #eee;
 				font-family: 'Miriam Libre', sans-serif;
+
+				@media (min-width: $lg) {
+					height:43px;
+				}
 
 				&.odd {
 					background-color: #ddd;
@@ -39,9 +67,14 @@ section.calendar-view {
 				a {
 					text-align: center;
 					display: block;
-					text-align: center;
-					line-height: 40px;
 					color: #fff;
+					line-height: $mobile-height;
+					font-size: 2rem;
+
+					@media  (min-width: $lg) {
+						line-height: 43px;
+						font-size: 1.4rem;
+					}
 				}
 
 				&.u-hidden {

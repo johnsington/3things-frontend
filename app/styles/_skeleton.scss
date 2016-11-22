@@ -31,10 +31,10 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+   }
 .column,
 .columns {
   width: 100%;
@@ -48,11 +48,17 @@
     padding: 0; }
 }
 
+/*@media (min-width: 1000px) {
+  .container {
+    max-width:1000px;
+  }
+}*/
+
 /* For devices larger than 550px */
 @media (min-width: 550px) {
   .container {
-    width: 80%; }
-  .column,
+    width: 80%;
+  }
   .columns {
     margin-left: 4%; }
   .column:first-child,
@@ -400,6 +406,7 @@ on small devices, paste the mobile query code up in the buttons section and styl
 there.
 */
 
+$lg: 1000px;
 
 /* Larger than mobile */
 @media (min-width: 400px) {}
@@ -411,7 +418,4 @@ there.
 @media (min-width: 750px) {}
 
 /* Larger than desktop */
-@media (min-width: 1000px) {}
-
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {}
+/*@media (min-width: 1000px) {}*/
