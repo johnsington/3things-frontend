@@ -41,7 +41,7 @@ export default function () {
 				}
 			);
 		},
-		getEntries : (data)=> {
+		getEntries : (data, cb)=> {
 			let req = {
 				start_date: moment().subtract(1, 'months').format('DD-MM-YYYY'),
 				end_date: moment().format('DD-MM-YYYY'), 
@@ -74,6 +74,10 @@ export default function () {
 
 					var bodyJSON = $.parseJSON(body);
 					console.log(bodyJSON);
+
+					if (cb){
+						cb(bodyJSON);
+					};
 				}
 			);
 		},
@@ -107,6 +111,7 @@ export default function () {
 						cookie.set('session-id', bodyJSON.id);
 						cookie.set('session-token', bodyJSON.token);
 						cookie.set('user-id', bodyJSON.user.id);
+						cookie.set('user-full-name', data.name);
 
 						if (cb) {
 							cb();
@@ -116,6 +121,9 @@ export default function () {
 			} catch (e) {
 				console.log(e.message);
 			}
+		},
+		getName : ()=> {
+			return cookie.get('user-full-name');
 		},
 		getClientUrl : ()=> {
 			return clientUrl;
