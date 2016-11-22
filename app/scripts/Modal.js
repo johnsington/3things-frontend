@@ -48,29 +48,42 @@ export default function(elt, openerClass){
 
         //code injection avoidance convert to html entities
         t1 = removeInject(t1);
-        t2 = removeInject(t1);
-        t3 = removeInject(t1);
+        t2 = removeInject(t2);
+        t3 = removeInject(t3);
 
-        var allentries = [];//{t1.value, t2.value, t3.value};
-        allentries.push(t1);
-        allentries.push(t2);
-        allentries.push(t3);
+        var allEntries ={
+            'entry1': t1,
+            'entry2': t2,
+            'entry3': t3
+        };
+        
+        //clear text
+        $('#err').empty();
+        $('#ta1').val('');
+        $('#ta2').val('');
+        $('#ta3').val('');
 
         //validate form here
-        api.postUser('Joanne');
+        api.postEntry(allEntries, function(response){
+            var name = api.getName().split(" ");
+            //console.log(name);
 
-        $modal.find('.form-container').addClass('u-hidden');
-        $modal.find('.success').removeClass('u-hidden');
-        delayAnimate($modal.find('.success').children(), 'fadeInUp');
+            $('#complete').html('Thanks for writing '+ name[0]+'!');
 
-        setTimeout(function(){
+            $modal.find('.form-container').addClass('u-hidden');
+            $modal.find('.success').removeClass('u-hidden');
+            delayAnimate($modal.find('.success').children(), 'fadeInUp');
 
-            $modal.animateCss('fadeOut', function() {
-                $modal.addClass('u-hidden');
-                $modal.find('.form-container').removeClass('u-hidden');
-                $modal.find('.success').addClass('u-hidden');
-            });
-        }, 1050);
+            setTimeout(function(){
+
+                $modal.animateCss('fadeOut', function() {
+                    $modal.addClass('u-hidden');
+                    $modal.find('.form-container').removeClass('u-hidden');
+                    $modal.find('.success').addClass('u-hidden');
+                });
+            }, 1050);  
+        });
+        
         
     });
 
