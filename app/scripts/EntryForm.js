@@ -92,7 +92,7 @@ export default function(){
     $('.inactive').on('keyup', function countChar() {
         updateCharCount(maxChar-this.value.length);
     });
-
+    //comment
 }
 
 

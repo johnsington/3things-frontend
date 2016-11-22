@@ -136,6 +136,14 @@ gulp.task('serve', () => {
   });
 });
 
+gulp.task('serveprod', ['build'], ()=> {
+  connect.server({
+    root: ['dist'],
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
+
 gulp.task('serve:dist', () => {
   browserSync({
     notify: false,
