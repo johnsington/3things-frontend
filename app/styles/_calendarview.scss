@@ -45,6 +45,11 @@ section.calendar-view {
 				width:14.28571%;
 				background: #eee;
 				font-family: 'Miriam Libre', sans-serif;
+				transition: all 0.2s;
+
+				&:hover{
+					opacity: 0.8;
+				}
 
 				@media (min-width: $lg) {
 					height:43px;

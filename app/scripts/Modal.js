@@ -34,6 +34,7 @@ export default function(elt, openerClass){
                 $modal.addClass('u-hidden');
                 $modal.find('.form-container').removeClass('u-hidden');
                 $modal.find('.success').addClass('u-hidden');
+                $modal.find('.hint').addClass('u-invisible');
             });
         }, 1050);
         
@@ -42,9 +43,16 @@ export default function(elt, openerClass){
     
 
     this.showModal = ()=> {
+        let $modal = this.$modal;
+
         this.$modal.removeClass('u-hidden');
         delayAnimate(this.$modal.children(), 'fadeInUp');
         delayAnimate(this.$modal.find('form > *'), 'fadeInUp', 250);
+
+        setTimeout(function(){
+            $modal.find('.hint').removeClass('u-invisible');
+            delayAnimate($modal.find('.hint'), 'fadeInUp');
+        }, 3000);
     }
 
     //initialize modal

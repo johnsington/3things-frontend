@@ -29,7 +29,6 @@ export default function(container) {
       $($month.find('.grid-container')).prepend(emptyCell);
     }
 
-    console.log(cells);
     for (let i = 0; i < days; i++) {
       let level = rand(0,4);
 

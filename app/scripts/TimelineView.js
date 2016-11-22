@@ -16,7 +16,7 @@ export default function(container) {
 	function renderEntry(entry){
 		let $entry = $($entryContainer.clone()).addClass('timeline-block');
 
-		$entry.find('.timeline-date').text(moment(entry.date, 'DD-MM-YYYY').format('MMMM D'));
+		$entry.find('p.timeline-date').text(moment(entry.date, 'DD-MM-YYYY').format('MMMM D'));
 		
 		entry.memories.forEach((memory)=>{
 			let $memory = $($memoryContainer.clone());
