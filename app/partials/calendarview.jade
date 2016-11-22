@@ -5,10 +5,24 @@ section.calendar-view.u-hidden
 				.u-hidden
 					.month-container
 						h5.month-name January
+						.day-columns
+							.day-cell
+								a S
+							.day-cell
+								a M
+							.day-cell
+								a T
+							.day-cell
+								a W
+							.day-cell
+								a T
+							.day-cell
+								a F
+							.day-cell
+								a S
 						.grid-container
 							- for (var j = 0; j <5 ; j++)
-								.grid-row
-									- for (var i = 1; i <= 7; i++)
-											.cell.u-hidden
-												a= j*7 + i
+								- for (var i = 1; i <= 7; i++)
+										.cell.u-hidden
+											a(href="#")= j*7 + i
 

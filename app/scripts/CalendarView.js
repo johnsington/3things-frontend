@@ -19,12 +19,21 @@ export default function(container) {
 
     //update days
     let days = date.daysInMonth();
+    let firstDay = date.date(1).format('d');
+
+    for (let offset=0; offset < firstDay; offset++){
+      let emptyCell = $(cells[0]).clone();
+
+      $(emptyCell).removeClass('u-hidden').addClass('u-invisible');
+
+      $($month.find('.grid-container')).prepend(emptyCell);
+    }
 
     for (let i = 0; i < days; i++) {
       let level = rand(0,4);
 
       if(i%2 == 0) {
-         $(cells[i]).addClass('odd')
+         $(cells[i]).addClass('odd');
       }
 
       $(cells[i]).removeClass('u-hidden').addClass('green-'+ Math.floor(level).toString());

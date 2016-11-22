@@ -11,6 +11,7 @@
 @import "calendarview";
 @import "newentry";
 @import "landing";
+@import "nav";
 
 /* Utilities */
 .u-hidden {
@@ -19,7 +20,7 @@
 
 .u-invisible {
 	opacity: 0;
-	visibility: none;
+	visibility: hidden;
 }
 
 .button,input[type=button], input[type=submit], input[type=reset] {
@@ -37,61 +38,4 @@
   		color: #fff;
   		opacity: 0.8;
   	}
-}
-
-nav {
-	$logo-size: 32px;
-	padding: 18px 0;
-	line-height: $logo-size;
-
-	.logo {
-		display: inline-block;
-		margin: 0 auto;
-		width: $logo-size;
-		height: $logo-size;
-		position: absolute;
-		left: 0;
-		right: 0;
-		img {
-			width:100%;
-			height:100%;
-			vertical-align: middle;
-		}
-	}
-
-	.left-nav {
-		a {
-			/*font-family: 'Miriam Libre', sans-serif;*/
-			color: $main-type-colour;
-		}
-	}
-
-	.right-nav {
-		.username {
-			display:none;
-			@media (min-width: $lg) {
-				display:inline;
-			}
-		}
-		.round-button {
-			$button-size: 32px;
-			font-size: 22px;
-			display: inline-block;
-			margin-left: 10px;
-			width: $button-size;
-			height:$button-size;
-			line-height: 27px;
-			text-align: center;
-			background: $main-colour;
-			color: #fff;
-			text-decoration: none;
-			border-radius: $button-size;
-
-			&.toggle-calendar {
-				span {
-					font-size: 18px;
-				}
-			}
-		}
-	}
 }

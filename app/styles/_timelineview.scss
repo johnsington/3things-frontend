@@ -28,12 +28,18 @@ section.timeline-view {
 			opacity: 0.5;
 		}
 	}
-	span.timeline-date {
+	
+	p.timeline-date {
 		display: inline-block;
-		position: absolute;
-		left: -115px;
-		text-align: right;
 		opacity: 0.5;
+		font-size: 13px;
+		
+		@media (min-width: $lg) {
+			position: absolute;
+			left: -115px;
+			text-align: right;
+			font-size: 15px;
+		}
 	}
 
 	.memory-dot {
@@ -44,6 +50,13 @@ section.timeline-view {
 		background: $main-colour;
 		border-radius: $dot-size;
 		top: 2px;
+
+		&.date {
+			background: #ddd;
+			@media (min-width: $lg) {
+				display:none;
+			}
+		}
 	}
 
 	.memory-content {

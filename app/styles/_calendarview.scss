@@ -35,9 +35,9 @@ section.calendar-view {
 		.month-name {
 			margin: 10px;
 		}
-		.grid-container {
+		.grid-container, .day-columns {
 			width:100%;
-			.cell {
+			.cell,.day-cell {
 				$mobile-height: 9vh;
 				display:block;
 				float:left;
@@ -45,6 +45,11 @@ section.calendar-view {
 				width:14.28571%;
 				background: #eee;
 				font-family: 'Miriam Libre', sans-serif;
+				transition: all 0.2s;
+
+				&:hover{
+					opacity: 0.8;
+				}
 
 				@media (min-width: $lg) {
 					height:43px;
@@ -82,6 +87,16 @@ section.calendar-view {
 					display: none;
 				}
 			}
+		}
+
+		.day-columns {
+			.day-cell {
+				background: #fff;
+				a {
+					color: #bbb;
+				}
+			}
+
 		}
 	}
 }

@@ -10,6 +10,19 @@ import Landing from './Landing';
 
 let api = ApiUtil();
 
+function Nav() {
+    //initialize nav
+    $('nav .username').text('Hi ' + api.getName().split(' ')[0] + '!');
+
+    $('.toggle-calendar').click(function(e){
+        e.preventDefault();
+        $('.toggle-calendar .fa-calendar').toggleClass('u-hidden');
+        $('.toggle-calendar .fa-list-ul').toggleClass('u-hidden');
+
+        $('.timeline-view').toggleClass('u-hidden');
+        $('.calendar-view').toggleClass('u-hidden');
+    });
+}
 
 (function($){
     $(document).ready(function(){
@@ -18,7 +31,8 @@ let api = ApiUtil();
         let newEntry = new Modal('.new-entry', '.newpost');
         FBinit();
         EntryForm();
-        
+        Nav();
+
         if (calendar){
             calendar.renderYear();
         }
@@ -32,14 +46,5 @@ let api = ApiUtil();
         if (name) {
         	console.log('cookie successfully set: ' + name);
         }
-
-        //initialize nav
-        $('nav .username').text('Hi ' + api.getName().split(' ')[0] + '!');
-
-        $('.toggle-calendar').click(function(e){
-        	e.preventDefault();
-        	$('.timeline-view').toggleClass('u-hidden');
-        	$('.calendar-view').toggleClass('u-hidden');
-        })
     });
 })($);

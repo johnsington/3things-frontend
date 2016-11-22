@@ -29,5 +29,21 @@
 	section {
 		text-align: center;
 	}
-	
+}
+
+.puppets-container {
+	position: absolute;
+	bottom: 0;
+	overflow: hidden;
+
+	.offset {
+		transform: translateY(50px);
+	}
+
+	.puppet {
+		display:inline-block;
+		img {
+			width:100px;
+		}
+	}
 }
