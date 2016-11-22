@@ -74,8 +74,8 @@ export default function(){
     
     $('.inactive').on('focus', function activeArea() { 
         var selectedTextArea = document.activeElement;
-        console.log(selectedTextArea);
-        console.log(selectedTextArea.id);
+        // console.log(selectedTextArea);
+        // console.log(selectedTextArea.id);
         currId=selectedTextArea.id;
         $('.number-inactive#n'+currId).toggleClass('number-active');
         console.log('.number-inactive#n'+currId);
@@ -84,7 +84,7 @@ export default function(){
 
 
     $('.inactive').on('focusout', function inactiveArea() {
-        console.log(currId);
+        // console.log(currId);
         $('.number-inactive#n'+currId).toggleClass('number-active');
         updateCharCount('');
     });
@@ -95,14 +95,14 @@ export default function(){
 
     $('#submit').click(function submitForm(){
         //check input boxes
-        console.log('here submit');
+        // console.log('here submit');
         var t1 = document.getElementById('ta1');
         var t2 = document.getElementById('ta2');
         var t3 = document.getElementById('ta3');
 
-        console.log(t1);
-        console.log(t2);
-        console.log(t3);
+        // console.log(t1);
+        // console.log(t2);
+        // console.log(t3);
 
         var regexp=/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/;
 
@@ -142,9 +142,6 @@ export default function(){
             document.getElementById('ta3').innerHTML ='';
             return allentries;
         }
-
-        //var regexp=/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/
-        //if regexp.test(t1.value)
     });
 }
 

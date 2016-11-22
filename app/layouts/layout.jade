@@ -5,9 +5,12 @@ html
 		meta(name="viewport" content="width=device-width; initial-scale=1.0;")
 		block title
 			title 3 Things App
+
+		// build:css styles/main.css
 		link(rel="stylesheet" href="styles/main.css")
+		// endbuild
 	body
 		block content
-		| <!-- build:js({.tmp,app}) scripts/main.js -->
+		// build:js({.tmp,app}) scripts/main.js
 		script(src="scripts/bundle.js")
-		| <!-- endbuild -->
+		// endbuild

@@ -50,10 +50,17 @@ export default function() {
       FB.login(function(res){
         if (res.status == 'connected') {
           FB.api('/me', {fields: 'name,email'}, function(response) {
-            response.fbToken = res.authResponse.accessToken;
-            api.login(response);
-            cookie.set('response-name', response.name, { expires: res.expiresIn});
-            window.location.assign(api.getClientUrl());
+            response['fb_token'] = res.authResponse.accessToken;
+            response['user_id'] = response.id;
+            api.login(response, function() {
+              console.log(cookie.get('session-id'));
+              console.log(cookie.get('session-token'));
+              console.log(cookie.get('user-id'));
+
+              api.getEntries();
+              // api.postEntry();
+              // window.location.assign(api.getClientUrl());
+            });
           });
         }
         else {
