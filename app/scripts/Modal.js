@@ -4,8 +4,10 @@ import {delayAnimate} from './util/animation'
 
 let api = ApiUtil();
 
-export default function(elt, openerClass){
+export default function(elt, openerClass, timeline, calendar){
     var maxChar=170;
+    this.timeline = timeline;
+    this.calendar = calendar;
     this.active = false;
     this.$modal = $(elt);
     this.response = {};
@@ -72,6 +74,8 @@ export default function(elt, openerClass){
             $modal.find('.form-container').addClass('u-hidden');
             $modal.find('.success').removeClass('u-hidden');
             delayAnimate($modal.find('.success').children(), 'fadeInUp');
+            timeline.renderRecentEntries();
+            calendar.update();
 
             setTimeout(function(){
 

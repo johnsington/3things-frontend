@@ -36,8 +36,7 @@ export default function(container) {
          $(cells[i]).addClass('odd');
       }
 
-      $(cells[i]).removeClass('u-hidden').addClass('green-'+ Math.floor(level).toString());
-
+      $(cells[i]).removeClass('u-hidden').attr('data-date', date.date(i+1).format('DD-MM-YYYY'))
     }
 
     //update month name
@@ -48,7 +47,22 @@ export default function(container) {
     $container.append($month);
   }
 
+  function updateCalendar() {
+    api.getEntries(null,(response)=>{
+      response.daily_entries.forEach((entry)=>{
+        let date = entry.date;
+
+        let $day = $('.cell[data-date="' + date + '"]');
+
+        if (entry.memories.length > 0) {
+          $day.addClass('green-' + entry.memories.length);
+        }
+      })
+    });
+  }
+
   return {
+    update: updateCalendar,
     renderYear : ()=> {
       let year = moment().year();
       for (let month = 1; month <=12 ; month++){
@@ -59,6 +73,7 @@ export default function(container) {
         }
         renderMonth( year.toString() + '-' + monthString, $container);
       }
+      updateCalendar();
     }
   };
 }
