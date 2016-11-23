@@ -8,6 +8,12 @@ export default function () {
 	const url = 'https://cryptic-earth-35727.herokuapp.com';
 	const clientUrl = 'http://localhost:9000/';
 
+	function formatEntryResponses(body){
+		body.memories.forEach((memory)=>{
+			memory.text = $.parseJSON(memory.text)[1];
+		})
+	}
+
 	return {
 		postUser : (data)=> {
 			let req = {
@@ -36,8 +42,7 @@ export default function () {
 				function(err, response, body) {
 					console.log(response.statusCode) // 200
 
-					var bodyJSON = $.parseJSON(body);
-					console.log(bodyJSON);
+					var bodyJSON = formatEntryResponses($.parseJSON(body));
 
 					if (cb){
 						cb(bodyJSON);
@@ -52,9 +57,6 @@ export default function () {
 				user_id: cookie.get('user-id'),
 				session_token: cookie.get('session-token'),
 			};
-
-			console.log('request body: ');
-			console.log(req);
 
 			if (data) {
 				req.start_date = data.start_date;
@@ -77,6 +79,12 @@ export default function () {
 					console.log(response.statusCode) // 200
 
 					var bodyJSON = $.parseJSON(body);
+
+					bodyJSON.daily_entries.reverse();
+					bodyJSON.daily_entries.forEach((entry)=>{
+						formatEntryResponses(entry);
+					});
+
 					console.log(bodyJSON);
 
 					if (cb){

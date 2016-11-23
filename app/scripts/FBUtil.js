@@ -53,7 +53,7 @@ export default function() {
             response['fb_token'] = res.authResponse.accessToken;
             response['user_id'] = response.id;
             api.login(response, function() {
-              window.location.assign(document.location.origin);
+              window.location.assign(document.location.origin+'/landing.html');
             });
           });
         }
@@ -63,7 +63,7 @@ export default function() {
       }, {scope: 'email'})
     };
 
-    $('.login').click(this.login);
+    $('.login').bind('click touchstart',this.login);
 
   });
 }

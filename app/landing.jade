@@ -1,25 +1,10 @@
 extends ./layouts/layout.jade
 
 block content
-	.landing
-		.container &nbsp;
-		section
-			.container
-				.row
-					.three.columns &nbsp;
-					.six.columns.titles.u-invisible
-						h1 3 Things
-						h2 Improve your mental well being by remembering today’s little joys.
-						a.button.login 
-							.span.fa.fa-facebook-square
-							| Login with Facebook
-		.puppets-container.u-full-width
-			.offset
-				.container
-					.twelve-columns
-						.puppet
-							img(src="./images/girl-puppet.png")
-						.puppet
-							img(src="./images/boy-puppet.png")
-						.puppet
-							img(src="./images/girl-1-puppet.png")
+	include ./partials/nav.jade
+	.container
+		.twelve.columns 
+			h1 Your Past Memories
+	include ./partials/calendarview.jade
+	include ./partials/timelineview.jade
+	include ./partials/newentry.jade
