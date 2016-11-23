@@ -13,7 +13,9 @@ export default function(elt, openerClass){
     this.$clone = this.$modal.clone(true);
     this.$submit = this.$modal.find('input[type="button"]').first();
 
-    $('#complete').text('Thanks for writing '+ api.getName().split(' ')[0] +'!');
+    if ($('#complete').length){
+        $('#complete').text('Thanks for writing '+ api.getName().split(' ')[0] +'!');
+    }
 
     this.registerOpener = ()=> {
         this.$opener.bind('click touchstart',this.showModal);

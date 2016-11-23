@@ -31,7 +31,10 @@ function Nav() {
         let newEntry = new Modal('.new-entry', '.newpost');
         FBinit();
         EntryForm();
-        Nav();
+
+        if ($('nav').length){
+           Nav(); 
+        }
 
         if (calendar){
             calendar.renderYear();
