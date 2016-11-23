@@ -18,6 +18,10 @@ export default function(container) {
 
 		$entry.find('p.timeline-date').text(moment(entry.date, 'DD-MM-YYYY').format('MMMM D'));
 		
+		if (!entry.memories.length) {
+			return;
+		}
+
 		entry.memories.forEach((memory)=>{
 			let $memory = $($memoryContainer.clone());
 
