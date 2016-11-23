@@ -63,7 +63,7 @@ export default function() {
       }, {scope: 'email'})
     };
 
-    $('.login').click(this.login);
+    $('.login').bind('click touchstart',this.login);
 
   });
 }

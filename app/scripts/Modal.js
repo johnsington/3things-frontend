@@ -16,10 +16,10 @@ export default function(elt, openerClass){
     $('#complete').text('Thanks for writing '+ api.getName().split(' ')[0] +'!');
 
     this.registerOpener = ()=> {
-        this.$opener.click(this.showModal);
+        this.$opener.bind('click touchstart',this.showModal);
     }
 
-    this.$submit.click((e)=>{
+    this.$submit.bind('click touchstart',(e)=>{
         let $modal = this.$modal;
         e.preventDefault();
 

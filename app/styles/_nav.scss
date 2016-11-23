@@ -52,6 +52,7 @@ nav {
 			text-decoration: none;
 			border-radius: $button-size;
 			transition: all 0.2s;
+			cursor: pointer;
 
 			&:hover{
 				opacity:0.8;
