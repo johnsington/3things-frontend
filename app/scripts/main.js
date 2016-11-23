@@ -28,7 +28,7 @@ function Nav() {
     $(document).ready(function(){
     	let calendar = CalendarView('.calendar-container');
         let timeline = TimelineView('.timeline-view');
-        let newEntry = new Modal('.new-entry', '.newpost');
+        let newEntry = new Modal('.new-entry', '.newpost', timeline, calendar);
         FBinit();
         EntryForm();
 

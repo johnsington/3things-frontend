@@ -35,6 +35,7 @@ export default function(container) {
 
 	return {
 		renderRecentEntries: ()=>{
+			$timeline.empty();
 			api.getEntries(null,(response)=>{
 				response.daily_entries.forEach((entry)=>{
 					renderEntry(entry);
