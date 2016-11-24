@@ -3,6 +3,37 @@ section.timeline-view {
 		margin: 45px 0;
 	}
 
+	.container.no-post {
+		width: 100%;
+	    height: 100vh;
+	    position: absolute;
+	    top: 0;
+	    display: flex;
+	    justify-content: center;
+	    flex-direction: column;
+	    z-index:-1;
+
+	    a{
+	    	transition: all 0.2s;
+	    	&:hover {
+		    	opacity:0.8;
+		    }
+	    }
+	    
+	    span {
+	    	font-family: 'Montserrat';
+	    	font-weight: normal;
+	    	font-size: 26px;
+	    	color: $main-colour;
+	    	cursor: pointer;
+	    }
+	    .fa {
+	    	padding-left: 5px;
+	    }
+	    &.u-hidden{
+	    	display:none;
+	    }
+	}
 	.memory-block, .timeline-block {
 		position: relative;
 	}

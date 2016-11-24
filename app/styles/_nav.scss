@@ -38,6 +38,46 @@ nav {
 				display:inline;
 			}
 		}
+
+		.newpost {
+			line-height: 32px;
+	    height: 32px;
+	    margin-left: 10px;
+	    display: inline-block;
+	    padding: 0;
+	    width: 32px;
+
+	    .done-text {
+	    	display:none;
+	    }
+
+	    .not-done-text {
+	    	display:block;
+	    }
+
+	    @media (min-width: $lg) {
+				padding: 0 15px 0 20px;
+				width: initial;
+
+				.fa {
+		    	padding-left: 10px;
+		    }
+	    }
+
+	    &.done {
+	    	background: $secondary-colour;
+	    	pointer-events: none;
+
+	    	.done-text {
+	    		display: block;
+	    	}
+
+	    	.not-done-text {
+	    		display:none;
+	    	}
+	    }
+		}
+
 		.round-button {
 			$button-size: 32px;
 			font-size: 22px;

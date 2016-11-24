@@ -1,0 +1,7 @@
+git checkout prod
+git fetch
+git merge origin/master
+gulp build
+git add dist
+git commit -m 'updated version'
+git push origin prod

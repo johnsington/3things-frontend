@@ -60,7 +60,7 @@ export default function() {
         else {
           console.log('An error occurred in GET /me');
         }
-      }, {scope: 'email'})
+      }, {scope: 'email', return_scopes: true})
     };
 
     $('.login').on('click touchstart', (e)=>{

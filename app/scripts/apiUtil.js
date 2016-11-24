@@ -35,6 +35,7 @@ export default function () {
 			let req = {
 				date: moment().format('DD-MM-YYYY'),
 				user_id: cookie.get('user-id'),
+				session_token: cookie.get('session-token'),
 				memories: [data.entry1, data.entry2, data.entry3]
 			};
 
@@ -100,11 +101,9 @@ export default function () {
 					throw new Error('argument passed is NULL');
 				}			
 
-				if (!data.name || !data.email) {
-					throw new Error('argument has no email or name field defined');
-				}	
-
-				console.log('requesting...');
+				if (!data.name) {
+					throw new Error('argument has no name field defined');
+				}
 
 				request.post(url+'/session', {form:data} ,
 					function(err, response, body) {
