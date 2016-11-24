@@ -65,7 +65,6 @@ export default function() {
 
     $('.login').on('click touchstart', (e)=>{
       e.preventDefault();
-      console.log('getting clicked');
       this.login();
     });
 

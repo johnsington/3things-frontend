@@ -81,7 +81,6 @@ export default function () {
 
 					var bodyJSON = $.parseJSON(body);
 
-					bodyJSON.daily_entries.reverse();
 					bodyJSON.daily_entries.forEach((entry)=>{
 						formatEntryResponses(entry);
 					});
