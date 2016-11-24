@@ -32,7 +32,7 @@ export default function(container) {
 		entry.memories.forEach((memory)=>{
 			let $memory = $($memoryContainer.clone());
 
-			if(memory.text == "") {
+			if(memory.text == '') {
 				return;
 			}
 
