@@ -27,13 +27,11 @@ export default function(elt, openerClass, timeline, calendar){
         let $modal = this.$modal;
         e.preventDefault();
 
-        var t1 = $('#ta1').val();
-        var t2 = $('#ta2').val();
-        var t3 = $('#ta3').val();
+        let t1 = $('#ta1').val(), t2 = $('#ta2').val(), t3 = $('#ta3').val();
 
 
-        if(t1.length==0 || t2.length==0||t3.length==0){
-            $('#err').html('Please write your 3 entries');
+        if(t1.length==0){
+            $('#err').html('Please write at least one entry.');
             return;
         }
 
@@ -63,12 +61,6 @@ export default function(elt, openerClass, timeline, calendar){
             'entry3': t3
         };
         
-        //clear text
-        $('#err').empty();
-        $('#ta1').val('');
-        $('#ta2').val('');
-        $('#ta3').val('');
-
         //validate form here
         api.postEntry(allEntries, function(response){
             $modal.find('.form-container').addClass('u-hidden');
@@ -78,6 +70,10 @@ export default function(elt, openerClass, timeline, calendar){
             calendar.update();
 
             setTimeout(function(){
+
+                //clear input,error fields
+                $('#err').empty();
+                $('input[type=textarea]').val('');
 
                 $modal.animateCss('fadeOut', function() {
                     $modal.addClass('u-hidden');

@@ -18,6 +18,12 @@
 	display: none;
 }
 
+.u-hidden-mobile {
+  @media (max-width: $lg) {
+    display:none;
+  }
+}
+
 .u-invisible {
 	opacity: 0;
 	visibility: hidden;

@@ -63,6 +63,7 @@ export default function(container) {
 
   return {
     update: updateCalendar,
+    container : $container,
     renderYear : ()=> {
       let year = moment().year();
       for (let month = 1; month <=12 ; month++){

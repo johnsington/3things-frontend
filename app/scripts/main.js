@@ -36,11 +36,11 @@ function Nav() {
            Nav(); 
         }
 
-        if (calendar){
+        if (calendar.container.length){
             calendar.renderYear();
         }
 
-        if (timeline){
+        if (timeline.container.length){
             timeline.renderRecentEntries();
         }
         
