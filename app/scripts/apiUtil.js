@@ -14,6 +14,7 @@ export default function () {
 	}
 
 	return {
+		//serves as a debugging method to validate server connection
 		postUser : (data)=> {
 			let req = {
 				name: data
@@ -22,14 +23,13 @@ export default function () {
 			request.post(url+'/user', {form:{name:'john'}} ,
 				function(err, response, body) {
 					console.log(response.statusCode) // 200
-					console.log(response.headers['content-type']); // 'image/png'
 
 					var bodyJSON = $.parseJSON(body);
 					console.log(bodyJSON);
-					console.log(bodyJSON.id);
 				}
 			);
 		},
+		//sends a POST daily_entry to server and runs callback on response
 		postEntry : (data, cb)=> {
 			let req = {
 				date: moment().format('DD-MM-YYYY'),
@@ -50,6 +50,7 @@ export default function () {
 				}
 			);
 		},
+		//sends a GET daily_entry to server and runs callback on response
 		getEntries : (data, cb)=> {
 			let req = {
 				start_date: moment().subtract(1, 'months').format('DD-MM-YYYY'),
@@ -92,6 +93,7 @@ export default function () {
 				}
 			);
 		},
+		//sends login request to server and runs callback on response
 		login : (data, cb)=> {
 
 			try {
@@ -111,12 +113,10 @@ export default function () {
 							return;
 						}
 
-						console.log(response.statusCode) // 200
-						console.log(response.headers['content-type']); // 'image/png'
-
 						var bodyJSON = $.parseJSON(body);
 						console.log(bodyJSON);
 
+						//set cookies necessary to persist session on browser client 
 						cookie.set('session-id', bodyJSON.id);
 						cookie.set('session-token', bodyJSON.token);
 						cookie.set('user-id', bodyJSON.user.id);
@@ -131,9 +131,11 @@ export default function () {
 				console.log(e.message);
 			}
 		},
+		//gets user's name provided by Facebook, persisted on browser client
 		getName : ()=> {
 			return cookie.get('user-full-name');
 		},
+		//gets client URL
 		getClientUrl : ()=> {
 			return clientUrl;
 		}

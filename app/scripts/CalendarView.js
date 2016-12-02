@@ -12,6 +12,7 @@ function rand(min, max) {
 export default function(container) {
   let $container = $(container);
 
+  //renders a month's UI 
   function renderMonth(month, $container) {
     let $month = $($('.month-container').clone());
     let cells = $month.find('.cell');
@@ -47,6 +48,7 @@ export default function(container) {
     $container.append($month);
   }
 
+  //updates the year's calendar to reflect user's posting activity
   function updateCalendar() {
     api.getEntries(null,(response)=>{
       response.daily_entries.forEach((entry)=>{

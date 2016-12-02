@@ -12,6 +12,7 @@ export default function(container) {
 	let $memoryContainer = $($container.find('.memory-block-container').clone().removeClass('memory-block-container'));
 	let hasToday = false;
 
+	//renders one timeline entry based on backend data
 	function renderEntry(entry){
 		let $entry = $($entryContainer.clone()).addClass('timeline-block');
 
@@ -44,6 +45,7 @@ export default function(container) {
 
 	return {
 		container: $container,
+		//render recent timeline entries
 		renderRecentEntries: ()=>{
 			$timeline.empty();
 			api.getEntries(null,(response)=>{
