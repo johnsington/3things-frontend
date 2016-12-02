@@ -4,7 +4,6 @@ import moment from 'moment';
 import cookie from 'cookies-js';
 
 export default function () {
-	// const url = 'https://sheltered-escarpment-22682.herokuapp.com';
 	const url = 'https://cryptic-earth-35727.herokuapp.com';
 	const clientUrl = 'http://localhost:9000/';
 

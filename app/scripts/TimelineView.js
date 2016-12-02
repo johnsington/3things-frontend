@@ -12,8 +12,6 @@ export default function(container) {
 	let $memoryContainer = $($container.find('.memory-block-container').clone().removeClass('memory-block-container'));
 	let hasToday = false;
 
-	// let data = api.getEntries(function);
-
 	function renderEntry(entry){
 		let $entry = $($entryContainer.clone()).addClass('timeline-block');
 
